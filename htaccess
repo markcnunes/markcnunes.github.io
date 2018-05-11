@@ -1,0 +1,21 @@
+# Activate mod_expires for this directory
+ExpiresActive on
+
+# locally cache common image types for 7 days
+ExpiresByType image/jpg "access plus 7 days"
+ExpiresByType image/jpeg "access plus 7 days"
+ExpiresByType image/gif "access plus 7 days"
+ExpiresByType image/png "access plus 7 days"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType application/x-javascript "access plus 2 month"
+ExpiresByType text/javascript "access plus 2 month"
+ExpiresByType application/javascript "access plus 2 month"
+
+# cache CSS files for 24 hours
+ExpiresByType text/css "access plus 1 month"
+
+# gzip
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript image/svg+xml
+
+AddType image/svg+xml svg
+AddType image/svg+xml svgz

@@ -1,0 +1,804 @@
+@font-face {
+  font-family: 'Inknut Antiqua';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Inknut Antiqua Regular'), local('InknutAntiqua-Regular'), url(https://fonts.gstatic.com/s/inknutantiqua/v3/VlmmTfOrxr3HfcnhMueX9aeO3wbbq8mdDcGxwxDM3wA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+}
+@font-face {
+  font-family: 'Inknut Antiqua';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Inknut Antiqua Bold'), local('InknutAntiqua-Bold'), url(https://fonts.gstatic.com/s/inknutantiqua/v3/CagoW52rBcslcXzHh6tVIsjCRL9_sh8fifAgw5EsvS8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+}
+@font-face {
+  font-family: 'Assistant';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Assistant Light'), local('Assistant-Light'), url(https://fonts.gstatic.com/s/assistant/v2/vPC3tCw3LOzCSeGCtVp5Whampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+}
+@font-face {
+  font-family: 'Spinnaker';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Spinnaker'), local('Spinnaker-Regular'), url(https://fonts.gstatic.com/s/spinnaker/v9/WxzDAY6mC9v3znSJEtCoW5Bw1xU1rKptJj_0jans920.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+}
+@font-face {
+  font-family: 'Assistant';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Assistant Bold'), local('Assistant-Bold'), url(https://fonts.gstatic.com/s/assistant/v2/2sDZZGJYnIjSi6H75xk700CsBJ0YTivYtg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+*{
+  box-sizing: border-box;
+}
+
+:root{
+  --page-width: 8.5in;
+  --page-height: 11in;
+  --main-width: 6.4in;
+  --sidebar-width: calc(var(--page-width) - var(--main-width));
+  --decorator-horizontal-margin: 0.2in;
+  --sidebar-horizontal-padding: 0.2in;
+
+  /* XXX: using px for very good precision control */
+  --decorator-outer-offset-top: 10px;
+  --decorator-outer-offset-left: -5.5px;
+  --decorator-border-width: 1px;
+  --decorator-outer-dim: 9px;
+  --decorator-border: 1px solid #ccc;
+  --row-blocks-padding-top: 5pt;
+  --date-block-width: 0.6in;
+  --main-blocks-title-icon-offset-left: -19pt;
+}
+html {
+    background: #ECEFF1;
+}
+body{
+  background: #fff;
+  width: 100%;    
+  margin: 0;
+  font-family: 'Assistant', sans-serif; 
+  font-weight: 300;
+  line-height: 1.3;
+  color: #444;
+  hyphens: auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/*--Header--*/
+.header-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+        max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+#main-header {
+    background: #000;
+  width: 100%;
+  z-index: 9;
+}
+#main-header .logo {
+    font-family: 'Inknut Antiqua', serif;
+font-size: 24px;
+line-height: 1.3;
+    color: #fff;
+}
+#main-header .fa {
+    font-size: 14px;
+}
+#main-header a:link, a:visited {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    cursor: pointer;
+}
+#main-header a:hover, a:active {
+    color: #2e456b;
+    text-decoration: none;
+    outline: 0;
+    cursor: pointer;
+}
+#main-header .right-bar {
+  position: relative;
+    display: flex;
+    align-items: center;
+}
+#main-header .main-menu {
+  display: flex;
+  align-items: center;
+  display: none;
+}
+#main-header .mobile-menu {
+  display: inherit!important;
+    margin: 0;
+    z-index: 100;
+}
+#main-header .main-menu a {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 10px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: 'Spinnaker', sans-serif;
+}
+#main-header .main-menu a:hover {
+  color: #00ff8c;
+}
+.sticky-header {
+  padding: 15px 0;
+}
+.is-sticky .sticky-header {
+  background: rgba(0,0,0,.85);
+}
+#top .logo {
+    font-family: 'Inknut Antiqua', serif;
+    font-size: 24px;
+    line-height: 1.3;
+}
+#top .logo a {
+    color: #fff!important;
+}
+.navigation-bar-desk {
+    display: block;
+}
+.header-social {
+  margin-left: 20px;
+        display: flex;
+    align-items: center;
+}
+.header-social a {
+  margin: 0 5px;
+  padding: 0 5px;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.5);
+}
+.header-social a:hover {
+  color: #48d9be;
+}
+.d-flex{display:flex!important;}
+.align-items-center{align-items:center!important;}
+.default-header .right-bar{position:relative;}
+.default-header nav .main-menu{display:-webkit-box;display:-webkit-flex;display:-moz-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-align-items:center;align-items:center;}
+.default-header nav .main-menu a{display:inline-block;color:rgba(255, 255, 255, 0.5);margin:0 20px;text-transform:uppercase;font-size:12px;}
+.default-header nav .main-menu a:hover{color:#00ff8c;}
+.header-social{margin-left:20px;}
+.header-social a{margin:0 5px;padding:0 5px;display:inline-block;color:rgba(255, 255, 255, 0.5);}
+.header-social a:hover{color:#48d9be;}
+.lnr{font-family:'Linearicons-Free';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+.lnr-menu:before{content:"\e871";}
+.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+
+.current{
+   color: rgba(255, 255, 255, 0.9)!important;
+}
+
+h1 {
+   font-family: "Inknut Antiqua", sans-serif; 
+   margin: 0;
+  color: #000;
+}
+h2, h3{
+   font-family: "Spinnaker", sans-serif; 
+   margin: 0;
+  color: #000;
+    font-weight: 400;
+}
+
+li{
+  list-style-type: none;
+}
+
+#main{
+  width: 77%;
+  padding: 20px;
+  font-size: 18px;
+    padding-bottom: 100px;
+}
+
+#main .fa, #main .fas, #sidebar .fa, #sidebar .fas {
+  font-size: 14px;
+}
+.fa-map-marker {
+    margin-right: 10px;
+}
+
+#sidebar{
+  float: right;
+  position: relative; /* for disclaimer */
+  width: 23%;
+  height: auto;
+  padding: 0 30px;
+  background-color: #f2f2f2;
+  font-size: 16px;
+}
+
+/* main */
+
+/** big title **/
+#title, h1, h2{
+  text-transform: uppercase;
+}
+
+#title{
+    margin-left: 0.55in;
+    margin-bottom: 0.3in;
+    line-height: 1.2;
+}
+
+#title h1{
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 1.5;
+}
+#title h1 strong{
+  margin: auto 2pt auto 4pt;
+  font-weight: 600;
+}
+.subtitle {
+    font-size: 16px;
+}
+
+/*** categorial blocks ***/
+
+.main-block{
+  margin-top: 0.1in;
+}
+
+#main h2{
+  position: relative;
+  top: var(--row-blocks-padding-top);
+  /* XXX: 0.5px for aligning fx printing */
+  left: calc((var(--date-block-width) + var(--decorator-horizontal-margin)));
+  font-weight: 400;
+  font-size: 11pt;
+  color: #555;
+}
+
+#main h2 > i{
+  /* use absolute position to prevent icon's width from misaligning title */
+  /* assigning a fixed width here is no better due to needing to align decorator
+     line too */
+  position: absolute;
+  left: var(--main-blocks-title-icon-offset-left);
+  z-index: 1; /* over decorator line */
+  color: #444;
+}
+
+#main h2::after{ /* extends the decorator line */
+  height: calc(var(--row-blocks-padding-top) * 2);
+  position: relative;
+  top: calc(-1 * var(--row-blocks-padding-top));
+  /* XXX: 0.5px for aligning fx printing */
+  left: calc(-1 * var(--decorator-horizontal-margin));
+  display: block;
+  border-left: var(--decorator-border);
+  z-index: 0;
+  line-height: 0;
+  font-size: 0;
+  content: ' ';
+}
+
+/**** minor tweaks on the icon fonts ****/
+#main h2 > .fa-graduation-cap{
+  left: calc(var(--main-blocks-title-icon-offset-left) - 2pt);
+  top: 2pt;
+}
+
+#main h2 > .fa-suitcase{
+  top: 1pt;
+}
+
+#main h2 > .fa-folder-open{
+  top: 1.5pt;
+}
+
+/**** individual row blocks (date - decorator - details) ****/
+
+.blocks{
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.blocks > div{
+  padding-top: var(--row-blocks-padding-top);
+}
+
+.date {
+    flex: 0 0 var(--date-block-width);
+    padding-top: calc(var(--row-blocks-padding-top) + 2.5pt) !important;
+    padding-right: 10px;
+    font-size: 14px;
+    text-align: right;
+    line-height: 1;
+}
+
+.date span{
+  display: block;
+}
+
+.date span:nth-child(2)::before{
+  position: relative;
+  top: 1pt;
+  right: 5.5pt;
+  display: block;
+  height: 20px;
+  content: '|';
+}
+
+.decorator{
+  flex: 0 0 0;
+  position: relative;
+  width: 2pt;
+  min-height: 100%;
+  border-left: var(--decorator-border);
+}
+
+.decorator::before{
+  position: absolute;
+  top: var(--decorator-outer-offset-top);
+  left: var(--decorator-outer-offset-left);
+  content: ' ';
+  display: block;
+  width: var(--decorator-outer-dim);
+  height: var(--decorator-outer-dim);
+  border-radius: calc(var(--decorator-outer-dim) / 2);
+  background-color: #fff;
+}
+.decorator::after{
+  position: absolute;
+  top: calc(var(--decorator-outer-offset-top) + var(--decorator-border-width));
+  left: calc(var(--decorator-outer-offset-left) + var(--decorator-border-width));
+  content: ' ';
+  display: block;
+  width: calc(var(--decorator-outer-dim) - (var(--decorator-border-width) * 2));
+  height: calc(var(--decorator-outer-dim) - (var(--decorator-border-width) * 2));
+  border-radius: calc((var(--decorator-outer-dim) - (var(--decorator-border-width) * 2)) / 2);
+  background-color: #555;
+}
+.blocks:last-child .decorator{ /* slightly shortens it */
+  margin-bottom: 0.25in;
+}
+
+/***** fine-tunes on the details block where the real juice is *****/
+
+.details{
+  flex: 1 0 0;
+  padding-left: var(--decorator-horizontal-margin);
+  padding-top: calc(var(--row-blocks-padding-top) - 0.5pt) !important; /* not sure why but this is needed for better alignment */
+}
+.details header{
+  color: #000;
+    display: flex;
+    flex-wrap: wrap;
+}
+.details h3 {
+    font-size: 18px;
+    width: 100%;
+}
+.main-block:not(.concise) .details div{
+  margin: 0.18in 0 0.1in 0; 
+}
+.main-block:not(.concise) .blocks:last-child .details div{
+  margin-bottom: 0;
+}
+.main-block.concise .details div:not(.concise){
+  /* use padding to work around the fact that margin doesn't affect floated
+     neighboring elements */
+  padding: 0.05in 0 0.07in 0;
+}
+.details .place{
+  font-size: 18px;
+}
+.details .location {
+    width: 100%;
+}
+.details div{
+  clear: both;
+}
+
+/***** fine-tunes on the lists... *****/
+
+#main ul{
+  padding-left: 0.07in;
+  margin: 0.08in 0;
+}
+#main li{
+  margin: 0 0 0.025in 0;
+}
+
+/****** customize list symbol style ******/
+#main li::before{
+  position: relative;
+  margin-left: -4.25pt;
+  content: '• ';
+}
+.details .concise ul{
+  margin: 0 !important;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  columns: 2;
+}
+.details .concise li{
+  margin: 0 !important;
+}
+.details .concise li{
+  margin-left: 0 !important;
+}
+
+/* sidebar */
+#sidebar h1{
+  font-weight: 400;
+  font-size: 11pt;
+  font-family: "Spinnaker", sans-serif; 
+}
+.side-block{
+  margin-top: 105px;
+ }
+.side-block:nth-child(2), .side-block:nth-child(3) {
+    margin-top: 25px;
+}
+#contact ul{
+  margin-top: 0.05in;
+  padding-left: 0;
+  font-family: 'Assistant', sans-serif; 
+  font-weight: 400;
+  line-height: 1.75;
+}
+#contact li > i{
+  width: 9pt; /* for text alignment */
+  text-align: right;
+}
+#contact a {
+    color: #444;
+    text-decoration-line: none;
+}
+#skills{
+  line-height: 1.5;
+}
+#skills ul{
+  margin: 0.05in 0 0.15in;
+  padding: 0;
+}
+#disclaimer{
+  position: absolute;
+  bottom: var(--sidebar-horizontal-padding);
+  right: var(--sidebar-horizontal-padding);
+  font-size: 7.5pt;
+  font-style: italic;
+  line-height: 1.1;
+  text-align: right;
+  color: #777;
+}
+#disclaimer code{
+  color: #666;
+  font-family: 'Assistant', sans-serif; 
+  font-weight: 400;
+  font-style: normal;
+}
+#about .button {
+    display: block;
+    margin: 30px 0 0;
+}
+footer {
+        width: 100%;
+        background: #35bba3;
+        padding: 20px 0;
+}
+footer a {
+    text-decoration: none;
+}
+.button {
+	background: none;
+	border-radius: 2px;
+	box-sizing: border-box;
+	color: #fff;
+	cursor: pointer;
+	display: block;
+	height: 52px;
+	letter-spacing: 2px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 15px 35px;
+	font-family: 'Assistant', sans-serif;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1;
+	position: relative;
+	text-align: center;
+	transition: all 0.5s ease-in;
+	width: 240px;
+	border: 2px solid #fff;
+	-moz-osx-font-smoothing: grayscale;
+}
+#icon {
+    opacity: 0;
+    position: absolute;
+    transition: all 0.5s ease;
+    color: #fff;
+    top: 18px;
+    right: -30px;
+}
+.button:hover {
+    color: #fff;
+    background-color: #35bba3;
+    padding: 15px 45px 15px 25px;
+    transition: all 0.5s ease-in;
+}
+.button:hover #icon {
+  opacity: 1;
+  top: 18px;
+  right: 20px;
+    color: #fff;
+}
+/*---------------MEDIA QUERIES---------------*/
+@media screen {
+    body {
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #contact li > i {
+        width: 18px;
+        margin-right: 5px;
+    }
+}
+/* Medium devices Desktops */
+@media screen and (max-width: 991px) {
+    .default-header nav .main-menu a{margin:0 5px;}
+    #about, #theory, #portfolio, #contact {
+        padding: 50px 0;
+    }
+}
+@media screen and (max-width: 810px) {
+    #main {
+        float: none;
+        width: 100%;
+        font-size: 16px;
+        line-height: 1.4;
+        padding-bottom: 50px;
+        padding: 20px 40px 50px;
+    }
+    #title {
+        margin-left: 0;
+        margin-bottom: 30px;
+        line-height: 1.2;
+    }
+    .subtitle {
+        font-size: 18px;
+    }
+    #title h1 {
+        font-weight: 300;
+        font-size: 32px;
+    }
+    #main h2::after {
+        display: none;
+    }
+    #main h2 {
+        height: 25px;
+        position: inherit;
+        font-size: 18px;
+    }
+    .details h3 {
+        font-size: 12pt;
+    }
+    .details .place {
+        float: left;
+        font-size: 16px;
+    }
+    .blocks {
+        flex-wrap: wrap;
+    }
+    .date {
+        flex: 0 0 100%;
+        text-align: left;
+        line-height: 1.5;
+        font-size: 16px;
+        padding-left: 20px;
+    }
+    .date span {
+        display: inline;
+    }
+    .date span:nth-child(2)::before {
+        position: inherit;
+        top: inherit;
+        right: 5.5pt;
+        display: inline-block;
+        height: 10pt;
+        content: '-';
+        margin: 0 10px;
+    }
+    .details .concise ul {
+        -webkit-columns: 1;
+        -moz-columns: 1;
+        columns: 1;
+    }
+    .side-block {
+        margin-top: 0;
+    }
+    #sidebar {
+        float: none;
+        width: 100%;
+        font-size: 18px;
+        padding: 40px;
+        display: flex;
+        justify-content: flex-start;
+    }
+    #sidebar h1 {
+        font-size: 24px;
+    }
+    .details .place {
+        width: 100%;
+    }
+    .details .location {
+        float: inherit;
+    }
+    #contact {
+        width: 53%;
+    }
+    #contact ul {
+
+    }
+    #skills {
+    width: 40%;
+    }
+}
+@media screen and (max-width: 767px) {
+    .default-header nav .main-menu{display:none;}
+    #top .align-items-center {
+        align-items: flex-start!important;
+    }
+    .default-header .main-menu{-webkit-box-direction:normal;-webkit-box-orient:vertical;-webkit-flex-direction:column;-moz-flex-direction:column;-ms-flex-direction:column;flex-direction:column;position:absolute;top:40px;right:0;background:#4a4fad;padding:30px 20px;}
+    .default-header .main-menu a{margin:5px 20px!important;}
+    .default-header .mobile-btn{display:block!important;font-size:36px!important;position:absolute;top:0;right:0;}
+    .default-header .main-menu {
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        background: #4a4fad;
+        padding: 30px 20px;
+      }
+    
+      .default-header .main-menu a {
+        margin: 5px 20px !important;
+      }
+     .default-header nav .main-menu {
+        display: none;
+      }
+    #top .align-items-center{align-items:flex-start!important;}
+    .default-header .main-menu{-webkit-box-direction:normal;-webkit-box-orient:vertical;-webkit-flex-direction:column;-moz-flex-direction:column;-ms-flex-direction:column;flex-direction:column;position:absolute;top:40px;right:0;background:#4a4fad;padding:30px 20px;}
+    .default-header .main-menu a{margin:5px 20px!important;}
+    .default-header nav .main-menu{display:none;}
+    .header-social {
+        display: none !important;
+    }
+}
+@media screen and (max-width: 570px) {
+
+    .header-container {
+        flex-direction: column;
+    }
+    .sticky-wrapper {
+        height: 60px !important;
+    }
+    #main-header .mobile-menu {
+        display: flex !important;
+        margin: 0;
+        background: #000;
+        position: absolute;
+        right: -20px;
+        top: 15px;
+        padding: 0px 20px 0 20px;
+        text-align: right;
+        flex-direction: column;
+        align-items: end;
+    }
+    #main-header .mobile-menu li {
+        padding: 0 0 20px;
+    }
+    .mobile-btn {
+        position: absolute;
+        right: 0;
+        top: -25px;
+    }
+}
+@media screen and (max-width: 550px) {
+    #contact {
+        width: 100%;
+    }
+    #skills {
+        width: 100%;
+    }
+    #sidebar {
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width: 360px) {
+    #main-header .logo {
+        font-size: 18px;
+    }
+}
+/*======PRINT======*/
+@media print {
+body {
+    font: 12pt Georgia, "Times New Roman", Times, serif;
+    max-width: var(--page-width);
+    height: var(--page-height);
+}
+    header, footer {
+        display: none;
+    }
+#main{
+  width: var(--main-width);
+  padding: 0.25in 0.25in 0 0.25in;
+  font-size: 11pt;
+}
+#sidebar{
+  float: right;
+  position: relative; /* for disclaimer */
+  width: var(--sidebar-width);
+  height: 100%;
+  padding: 0.6in var(--sidebar-horizontal-padding);
+  background-color: #f2f2f2;
+  font-size: 8.5pt;
+}
+ .side-block{
+    margin-top: 105px;
+  margin-top: 0.5in; 
+}
+#title h1{
+  font-weight: 300;
+  font-size: 18pt;
+  line-height: 1.5;
+}
+.subtitle{
+  font-size: 8pt;
+}
+.details h3{
+  font-size: 9pt;
+}
+.details header {
+    display: block;
+}
+.details .place {
+    float: left;
+    font-size: 7.5pt;
+}
+.details .location {
+    float: right;
+    width: auto;
+}
+    
+.date {
+    flex: 0 0 var(--date-block-width);
+    padding-top: calc(var(--row-blocks-padding-top) + 2.5pt) !important;
+    padding-right: var(--decorator-horizontal-margin);
+    font-size: 7pt;
+    text-align: right;
+    line-height: 1;
+}
+}
+@page{
+  size: letter portrait;
+  margin: 0;
+}
