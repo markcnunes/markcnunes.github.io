@@ -17,7 +17,7 @@ class Ripple {
     // sprite
     // https://i.imgur.com/kr2RVKW.png
     // http://i.imgur.com/MfPhT1Y.png
-    this.sprite = PIXI.Sprite.fromImage("http://i.imgur.com/MfPhT1Y.png");
+    this.sprite = PIXI.Sprite.fromImage("https://i.imgur.com/MfPhT1Y.png");
     this.sprite.anchor.set(0.5);
     this.sprite.position.set(x, y);
     this.sprite.scale.set(8);
@@ -49,7 +49,7 @@ var bottom = new PIXI.Sprite(texture);
 bottom.width = imageWidth + 20;
 bottom.height = imageHeight + 20;
 
-var displacementSprite = PIXI.Sprite.fromImage("http://i.imgur.com/2yYayZk.png");
+var displacementSprite = PIXI.Sprite.fromImage("https://i.imgur.com/2yYayZk.png");
 var displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
 displacementFilter.autoFit = true;
 displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
