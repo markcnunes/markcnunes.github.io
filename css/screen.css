@@ -874,7 +874,7 @@ footer #scrolltotop:hover {
 }
 @media screen and (max-width: 570px) {
     #hero {
-        padding: 70px 0;
+        padding: 25px 0;
     }
     .header-social {
         display: none !important;
