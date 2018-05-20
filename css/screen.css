@@ -257,7 +257,7 @@ header .main-menu {
 header .mobile-menu {
   display: inherit!important;
     z-index: 100;
-    padding-top: 20px;
+/*    padding-top: 20px;*/
 }
 header .main-menu a {
     display: inline-block;
