@@ -12,12 +12,21 @@ $(document).ready(function () {
 
     $(document).scroll(function() {
         var y = $(this).scrollTop();
-        if (y > 500) {
-            $('.scrollup').fadeIn();
+        
+        // Body
+        if (y > 0) {
             $('body').addClass('has-scrolled');
         } else {
-            $('.scrollup').fadeOut();
             $('body').removeClass('has-scrolled');
+        }
+
+        // Scroll Up
+        if (y > 500) {
+            $('.scrollup').fadeIn();
+            $('.scrollup').addClass('is-active');
+        } else {
+            $('.scrollup').fadeOut();
+            $('.scrollup').removeClass('is-active');
         }
     });
     
