@@ -449,6 +449,9 @@ li{
 .side-block:nth-child(2), .side-block:nth-child(3) {
     margin-top: 25px;
 }
+.side-block span{
+  font-weight: bold;
+}
 #contact ul{
   margin-top: 0.05in;
   padding-left: 0;
@@ -470,6 +473,9 @@ li{
 #skills ul{
   margin: 0.05in 0 0.15in;
   padding: 0;
+}
+#skills ul li + li {
+  margin-top: 5px;
 }
 #disclaimer{
   position: absolute;
@@ -638,7 +644,7 @@ footer a {
         display: flex;
         justify-content: flex-start;
     }
-    #sidebar h1 {
+    #sidebar h3 {
         font-size: 24px;
     }
     .details .place {

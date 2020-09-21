@@ -328,6 +328,10 @@ header .main-menu a:hover {
     z-index: 1;
 }
 
+.homepage #hero {
+    background: url('../img/hero-background.jpg') no-repeat center / cover;
+}
+
 #hero h1 {
     color: #48d9be;
     font-size: 48px;
@@ -368,7 +372,7 @@ header .main-menu a:hover {
     color: #37a691!important;
 }
 #about .mark-picture {
-    background: #efefef url(../img/mark-picture4.jpg) no-repeat center / cover;
+    background: #efefef url(../img/mark-picture5.jpg) no-repeat center / cover;
     height: 100%;
     -webkit-border-radius: 3px;
     border-radius: 3px;
@@ -419,6 +423,9 @@ header .main-menu a:hover {
     height: 90px;
 }
 #theory .pod {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px 0 0;
     width: 7.11%;
 }
@@ -540,6 +547,18 @@ header .main-menu a:hover {
 }
 #portfolio .work4 {
     background: url(../img/work4.jpg) no-repeat center / 100%;
+}
+#portfolio .work5 {
+    background: url(../img/work2.jpg) no-repeat center / 100%;
+}
+#portfolio .work6 {
+    background: url(../img/work6.jpg) no-repeat center / 100%;
+}
+#portfolio .work7 {
+    background: url(../img/work7.jpg) no-repeat center / 100%;
+}
+#portfolio .work8 {
+    background: url(../img/work8.jpg) no-repeat center / 100%;
 }
 #portfolio h2 {
     margin-bottom: 30px;

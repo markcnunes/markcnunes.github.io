@@ -38,11 +38,11 @@ $(document).ready(function(){
     // $(function(){
     //     $('#Container').mixItUp();
     // });
-    var mixer = mixitup('#filter-content');
+    /* var mixer = mixitup('#filter-content');
     $(".controls .filter").on('click', function(event){
         $(".controls .filter").removeClass('active');
         $(this).addClass('active');
-    });
+    }); */
     // Add smooth scrolling to Menu links
          $(".main-menu li a, .smooth").on('click', function(event) {
                 if (this.hash !== "") {
@@ -57,7 +57,7 @@ $(document).ready(function(){
             } 
         });
 
-    $('.active-testimonial-carousel').owlCarousel({
+    /* $('.active-testimonial-carousel').owlCarousel({
         loop:true,
         dot: true,
         items: 3,
@@ -75,10 +75,10 @@ $(document).ready(function(){
                 items:3,
              }
         }
-    })
+    }) */
      // -------   Mail Send ajax
 
-     $(document).ready(function() {
+     /* $(document).ready(function() {
         var form = $('#myForm'); // contact form
         var submit = $('.submit-btn'); // submit button
         var alert = $('.alert'); // alert div for show alert message
@@ -110,7 +110,7 @@ $(document).ready(function(){
 
      $(document).ready(function() {
         $('#mc_embed_signup').find('form').ajaxChimp();
-    });
+    }); */
  });
 (function ($){
 

@@ -291,9 +291,19 @@ header .logo a {
     margin: 0 auto;
     padding: 30px 0 60px;
     z-index: 1;
+    background-color: #48d9be;
 }
 #crescent-hire #hero {
     background-color: #fdd900;
+}
+#asp #hero {
+    background-color: #00a986;
+}
+#geolocation #hero {
+    background-color: #00a3fa;
+}
+#potluckkeywords #hero {
+    background-color: #883bec;
 }
 #yellwebsites #hero {
     background-color: #fcda06;
@@ -325,43 +335,51 @@ header .logo a {
     z-index: 1;
 }
 #hero h1 {
-    color: #48d9be;
+    color: #000;
     font-size: 48px;
     text-align: left;
     margin-bottom: 10px;
     text-transform: none;
 }
-#about #hero h1 {
+
+#asp #hero h1,
+#gym-pad #hero h1,
+#potluckkeywords #hero h1 {
     color: #fff;
 }
+
 #crescent-hire #hero h1 {
     color: #000;
 }
 #yellwebsites #hero h1 {
     color: #000;
 }
-#datingwebsites #hero h1 {
-    color: #fff;
-}
-#gym-pad #hero h1 {
-    color: #fff;
-}
+
 #hero h2 {
     font-size: 18px;
     font-family: 'Open Sans', serif;
-    color: #fff;
+    color: #000;
     font-weight: 400;
     margin: 0;
     text-align: left;
     max-width: 960px;
     text-transform: none;
 }
-#crescent-hire #hero h2 {
+
+#asp #hero h2,
+#gym-pad #hero h2,
+#potluckkeywords #hero h2 {
+    color: #fff;
+}
+/* #crescent-hire #hero h2 {
+    color: #000;
+}
+#webdesign #hero h2 {
     color: #000;
 }
 #yellwebsites #hero h2 {
     color: #000;
-}
+} */
 #yellwebsites .portfolio {
     border: #7e8890 1px solid;
         -webkit-border-radius: 3px;
@@ -439,9 +457,9 @@ header .logo a {
     margin-top: 15px;
     display: none;
 }
-#about #books .col {
+/* #about #books .col {
     width: 13%;
-}
+} */
 #about #books .cover {
     background: grey;
  
@@ -450,6 +468,18 @@ header .logo a {
     max-width: 100%;
     height: auto;
  
+}
+#about #books .button--link {
+    display: flex;
+    color: black;
+    background: #ECEFF1;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: 0.3s all ease;
+}
+#about #books .button--link:hover {
+    background: #bdc0c2;
 }
 
 
@@ -461,8 +491,11 @@ header .logo a {
 #portfolio .row {
     max-width: 1200px;
 }
-#portfolio .col {
+.portfolio--three .col {
     width: 32%;
+}
+.portfolio--four .col {
+    width: 23.5%;
 }
 #portfolio *, #portfolio *:hover {
     -webkit-transition: all 0.3s ease;
@@ -533,6 +566,18 @@ header .logo a {
 }
 #portfolio .work4 {
     background: url(../img/work4.jpg) no-repeat center / 100%;
+}
+#portfolio .work5 {
+    background: url(../img/work2.jpg) no-repeat center / 100%;
+}
+#portfolio .work6 {
+    background: url(../img/work6.jpg) no-repeat center / 100%;
+}
+#portfolio .work7 {
+    background: url(../img/work7.jpg) no-repeat center / 100%;
+}
+#portfolio .work8 {
+    background: url(../img/work8.jpg) no-repeat center / 100%;
 }
 #portfolio h2 {
     margin-bottom: 30px;
