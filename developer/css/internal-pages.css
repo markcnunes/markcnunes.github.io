@@ -277,7 +277,7 @@ header .logo a {
 .header-social{margin-left:20px;}
 .header-social a{margin:0 5px;padding:0 5px;display:inline-block;color:rgba(255, 255, 255, 0.5);}
 .header-social a:hover{color:#48d9be;}
-.lnr{font-family:'Linearicons-Free';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+.lnr{font-family:'Linearicons-Free';/* speak:none; */font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 .lnr-menu:before{content:"\e871";}
 .fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 
@@ -655,8 +655,6 @@ footer {
 footer .container {
     align-items: center;
 }
-footer .col {}
-footer .col:nth-child(2) {}
 footer a:link, a:visited {
     font-size: 18px;
     color: #fff;
@@ -683,9 +681,6 @@ footer #scrolltotop {
     -ms-transition: all 200ms ease-in-out 100ms;
     -o-transition: all 200ms ease-in-out 100ms;
     transition: all 200ms ease-in-out 100ms;
-}
-footer #scrolltotop:hover {
-
 }
 #scrolltotop .fa-chevron-circle-up {
     margin-left: 10px;
@@ -887,7 +882,10 @@ footer #scrolltotop:hover {
         display: block;
         padding: 15px;
     }
-    #portfolio .work1, #portfolio .work2, #portfolio .work3, #portfolio .work4, {
+    #portfolio .work1,
+    #portfolio .work2,
+    #portfolio .work3,
+    #portfolio .work4 {
         background-size: cover;
     }
     #theory .skills .col {
