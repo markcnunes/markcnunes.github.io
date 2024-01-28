@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
+import type { iconPaths } from '../components/IconPaths';
+
+const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
+	{ label: 'GitHub', href: 'https://github.com/markcnunes', icon: 'github-logo' },
+	{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/markcnunes/', icon: 'linkedin-logo' },
+	{ label: 'Behance', href: 'https://www.behance.net/markclaus', icon: 'behance-logo' },
+	{ label: 'Dribbble', href: 'https://dribbble.com/markcnunes', icon: 'dribbble-logo' },
+	{ label: 'Medium', href: 'https://medium.com/@markclaus', icon: 'medium-logo' },
+];
+---
+
+<BaseLayout title="About | Mark Claus Nunes" description="About Mark Claus Nunes Lorem Ipsum">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+			>
+			<img
+			width="1553"
+			height="873"
+			src="/assets/portrait-about.jpg"
+			alt="Mark Claus Nunes at work with a colleague"
+			/>
+			<div class="socials">
+				{
+					iconLinks.map(({ href, icon, label }) => (
+						<a href={href} class="social">
+							<span class="sr-only">{label}</span>
+							<Icon icon={icon} />
+						</a>
+					))
+				}
+			</div>
+			</Hero>
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						I'm Mark Claus Nunes, a Brazilian full-stack developer. Currently, I work as a Fullstack Developer at That's The One, where I create functional and visually appealing products.
+					</p>
+					<p>
+						In 2015, I shifted from Design to Code, facing challenges that demonstrate my dedication. My design background enhances my coding, enabling me to make impactful design choices for web & mobile apps, prioritizing user experience.
+					</p>
+					<p>
+						I strongly believe in centering code on user experience, using my creativity to craft optimal user journeys that align with business objectives.
+					</p>
+					<p>
+						Moving to England was a personal and professional challenge. I continually study and apply my learnings in practical ways.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Education</h2>
+				<div class="content">
+					<p>Specialization - Cinema and Documentary<br/><i>Pitagoras, Brazil (2011 - 2013)</i></p>
+					<br/>
+					<p>Graduation - Visual Arts & Multimedia<br/><i>Unopar, Brazil (2008 - 2011)</i></p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<p>Typescript, React, Next.js, Prisma, Nest, GraphQL, React Query, Multilingual (i18n) and Styled-Component.</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: var(--border-radius-lg);
+		box-shadow: var(--shadow-md);
+	}
+
+	.socials {
+		display: flex;
+		justify-content: center;
+		gap: 0.75rem;
+	}
+
+	.social {
+		display: flex;
+		padding: var(--icon-padding);
+		text-decoration: none;
+		color: var(--accent-dark);
+		transition: color var(--theme-transition);
+	}
+
+	.social:hover,
+	.social:focus {
+		color: var(--accent-regular);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>

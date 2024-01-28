@@ -1,0 +1,129 @@
+---
+// Learn about using Astro layouts:
+// https://docs.astro.build/en/core-concepts/layouts/
+
+// Component Imports
+import MainHead from '../components/MainHead.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title?: string | undefined;
+	description?: string | undefined;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<MainHead title={title} description={description} />
+	</head>
+	<body>
+		<div class="stack backgrounds">
+			<Nav />
+			<slot />
+			<Footer />
+		</div>
+
+		<script>
+			// Add “loaded” class once the document has completely loaded.
+			addEventListener('load', () => document.documentElement.classList.add('loaded'));
+		</script>
+
+		<style>
+			:root {
+				--_placeholder-bg: linear-gradient(transparent, transparent);
+				--bg-noise: url('/assets/backgrounds/noise.png');
+				--bg-image-subtle-1: var(--_placeholder-bg);
+				--bg-image-subtle-2: var(--_placeholder-bg);
+				--bg-image-footer: var(--_placeholder-bg);
+				--bg-svg-blend-mode: overlay;
+				--bg-blend-mode: darken;
+				--bg-image-aspect-ratio: 2.25;
+				--bg-scale: 1.68;
+				--bg-aspect-ratio: calc(var(--bg-image-aspect-ratio) / var(--bg-scale));
+				--bg-gradient-size: calc(var(--bg-scale) * 100%);
+			}
+
+			:root.theme-dark {
+				--bg-noise: url('/assets/backgrounds/noise-dark.png');
+				--bg-svg-blend-mode: darken;
+				--bg-blend-mode: lighten;
+			}
+
+			.backgrounds {
+				min-height: 100%;
+				isolation: isolate;
+				background:
+					/*noise*/
+					url('/assets/backgrounds/noise.png') top center/220px repeat,
+					/*base*/ var(--background);
+				background-blend-mode: /*noise*/
+					overlay,
+					/*footer*/ var(--bg-blend-mode),
+					/*header1*/ var(--bg-svg-blend-mode),
+					/*header2*/ normal,
+					/*base*/ normal;
+					
+			
+				&::after {
+					animation: grain 8s steps(10) infinite;
+					background-image: var(--bg-noise);
+					content: "";
+					height: 300%;
+					left: -50%;
+					opacity: 0.6;
+					position: fixed;
+					top: -100%;
+					width: 300%;
+					z-index: -1;
+				}
+			}
+
+
+
+			@keyframes grain {
+			0%,
+			100% {
+				transform: translate(0, 0);
+			}
+			10% {
+				transform: translate(-5%, -10%);
+			}
+			20% {
+				transform: translate(-15%, 5%);
+			}
+			30% {
+				transform: translate(7%, -25%);
+			}
+			40% {
+				transform: translate(-5%, 25%);
+			}
+			50% {
+				transform: translate(-15%, 10%);
+			}
+			60% {
+				transform: translate(15%, 0%);
+			}
+			70% {
+				transform: translate(0%, 15%);
+			}
+			80% {
+				transform: translate(3%, 35%);
+			}
+			90% {
+				transform: translate(-10%, 10%);
+			}
+			}
+			@media (forced-colors: active) {
+				/* Deactivate custom backgrounds for high contrast users. */
+				.backgrounds {
+					background: none;
+					background-blend-mode: none;
+					--bg-gradient-size: none;
+				}
+			}
+		</style>
+	</body>
+</html>

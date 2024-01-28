@@ -1,0 +1,62 @@
+---
+import Icon from './Icon.astro';
+---
+
+<section class="box skills">
+	<div class="stack gap-2 lg:gap-4">
+		<Icon icon="monitor" color="var(--accent-regular)" size="2.5rem" />
+		<h2>Front-End</h2>
+		<p>Proficient in JavaScript app development, I create scalable solutions, particularly passionate about front-end work with React.</p>
+	</div>
+	<div class="stack gap-2 lg:gap-4">
+		<Icon icon="database" color="var(--accent-regular)" size="2.5rem" />
+		<h2>Back-End</h2>
+		<p>Experienced in back-end development utilizing Prisma and GraphQL, I specialize in crafting robust and efficient solutions.</p>
+	</div>
+	<div class="stack gap-2 lg:gap-4">
+		<Icon icon="image" color="var(--accent-regular)" size="2.5rem" />
+		<h2>Design</h2>
+		<p>Although no longer actively designing, my decade-long experience in Design prioritizes user experience and functionality.</p>
+	</div>
+</section>
+
+<style>
+	.box {
+		border: 1px solid var(--accent-regular);
+		border-radius: 0.75rem;
+		padding: 1.5rem;
+		background-color: var(--gray-999);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.skills {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+
+	.skills h2 {
+		font-size: var(--text-lg);
+	}
+
+	.skills p {
+		color: var(--gray-400);
+	}
+
+	@media (min-width: 50em) {
+		.box {
+			border-radius: var(--border-radius-lg);
+			padding: 2.5rem;
+		}
+
+		.skills {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 5rem;
+		}
+
+		.skills h2 {
+			font-size: var(--text-1xl);
+		}
+	}
+</style>

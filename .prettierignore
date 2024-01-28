@@ -1,0 +1,8 @@
+node_modules
+pnpm-lock.yaml
+package-lock.json
+public
+.pnp.js
+.pnp.cjs
+.pnp.loader.mjs
+.history
